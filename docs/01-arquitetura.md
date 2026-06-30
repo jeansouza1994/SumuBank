@@ -50,6 +50,7 @@ Na Fase 4 esse desenho muda.
         PostgreSQL RabbitMQ AWS S3
 
 Na Fase 6:
+
                  Usuário
                     │
                     ▼
@@ -58,16 +59,16 @@ Na Fase 6:
                HTTP / REST
                     │
                     ▼
-           Spring Boot Backend
-      │        │        │       │
-      ▼        ▼        ▼       ▼
- PostgreSQL RabbitMQ AWS S3 Actuator
-                               │
-                               ▼
-                     Prometheus
-                               │
-                               ▼
-                           Grafana
+                Spring Boot Backend
+              │      │      │       │
+              ▼      ▼      ▼       ▼
+        PostgreSQL RabbitMQ AWS S3  Actuator
+                                        │
+                                        ▼
+                                    Prometheus
+                                        │
+                                        ▼
+                                    Grafana
                            
 ## Componentes
 
