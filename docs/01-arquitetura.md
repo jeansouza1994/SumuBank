@@ -49,7 +49,6 @@ Na Fase 4 esse desenho muda.
               ▼      ▼      ▼
         PostgreSQL RabbitMQ AWS S3
 
-
 Na Fase 6:
                  Usuário
                     │
@@ -69,7 +68,7 @@ Na Fase 6:
                                │
                                ▼
                            Grafana
-
+                           
 ## Componentes
 
 | Componente  | Responsabilidade                        |
