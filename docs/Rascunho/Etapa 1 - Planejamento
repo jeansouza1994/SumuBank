@@ -1,0 +1,198 @@
+Nome: Sumubank
+
+O SumuBank é um banco digital fictício que permite a abertura de contas, gerenciamento financeiro,
+transferências entre clientes, consulta de extrato e gerenciamento de cartões. O objetivo do projeto
+é demonstrar conhecimentos em desenvolvimento Full Stack utilizando Angular, Spring Boot, PostgreSQL,
+RabbitMQ, Docker e AWS.
+
+Quem utilizar o sistema?
+
+Atores
+
+Cliente
+
+Pode:
+
+criar conta
+fazer login
+consultar saldo
+fazer transferências
+sacar
+depositar
+consultar extrato
+alterar dados
+
+Administrador
+
+Pode:
+
+visualizar todos os clientes
+bloquear conta
+desbloquear conta
+visualizar estatísticas
+gerenciar usuários
+
+Quais são as entidades?
+
+Cliente
+
+id
+nome
+cpf
+email
+telefone
+senha
+dataCadastro
+status
+
+Conta
+
+id
+numero
+agencia
+saldo
+tipo
+status
+
+Transacao
+
+id
+valor
+tipo
+origem
+destino
+data
+status
+
+Cartao
+
+id
+numero
+limite
+status
+
+Relacionamentos
+
+Cliente 1_____N Conta 1_____N Transacao
+
+Conta 1_____1 Cartao
+
+Casos de uso
+
+Cliente
+- Criar conta
+- Fazer login
+- Consultar saldo
+- Fazer pix
+- Depositar
+- sacar
+- Consultar extrato
+- Alterar senha
+
+Administrador
+- Bloquear conta
+- desbloquear conta
+- Listar clientes
+- Listar contas
+
+Fluxo do sistema
+
+Cliente -> Preenche valor -> API recebe -> Valida saldo -> Debita conta origem -> Credita conta destino
+-> Salva transação -> Retorna sucesso
+
+Organização do projeto
+
+Backend
+
+controller
+
+service
+
+repository
+
+entity
+
+dto
+
+mapper
+
+config
+
+security
+
+exception
+
+validation
+
+Frontend
+
+core
+
+shared
+
+features
+
+pages
+
+components
+
+guards
+
+services
+
+models
+
+interceptors
+
+
+Tabelas Banco de dados
+
+clientes
+
+contas
+
+transacoes
+
+cartoes
+
+API Rotas
+
+Cliente
+
+POST /clientes
+
+GET /clientes/{id}
+
+PUT /clientes/{id}
+
+Conta
+
+POST /contas
+
+GET /contas/{id}
+
+Transferencia
+
+POST /transferencias
+
+Extrato
+
+GET /contas/{id}/extrato
+
+Frontend Telas
+
+Login
+
+Cadastro
+
+Dashboard
+
+Minha Conta
+
+Extrato
+
+Transferência
+
+Perfil
+
+Admin

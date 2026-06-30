@@ -1,0 +1,95 @@
+Fase 1 — Planejamento
+
+- Desenho do sistema
+- Modelo relacional
+- Entidades
+- Casos de uso
+- Endpoints
+- Fluxo das telas
+- Arquitetura do projeto
+
+Fase 2 — MVP
+
+Objetivo: ter uma aplicação utilizável.
+
+- Angular
+- Spring Boot
+- PostgreSQL
+- Docker Compose
+- Swagger
+- CRUD de clientes
+- CRUD de contas
+- Depósito
+- Saque
+- Transferência
+- Extrato
+
+Fase 3 — Segurança
+
+Agora você protege o sistema.
+
+- Spring Security
+- JWT
+- Login
+- Cadastro
+- Perfis
+- Cliente
+- Administrador
+- BCrypt
+- Refresh Token
+
+Fase 4 — Qualidade/Testes
+
+- JUnit
+- Mockito
+- Testcontainers (se quiser dar um passo além)
+- Cobertura de testes
+- Refatorações
+
+Fase 5 — Arquitetura Assíncrona
+
+Agora entra o RabbitMQ.
+
+Eventos como:
+
+transferência realizada
+conta criada
+usuário cadastrado
+senha alterada
+
+Consumidores:
+
+enviar e-mail
+registrar auditoria
+gerar notificação
+
+Fase 6 — Produção
+
+Agora você pensa como um DevOps.
+
+Deploy:
+
+Frontend → Vercel
+Backend → Render
+PostgreSQL → Neon
+RabbitMQ → CloudAMQP
+S3 → AWS
+
+Também adicionaria:
+
+GitHub Actions
+variáveis de ambiente
+profiles do Spring (dev e prod)
+
+Fase 7 — Observabilidade
+
+Agora você pensa como quem opera um sistema em produção.
+
+Adicionar:
+
+Spring Boot Actuator
+Micrometer
+Prometheus
+Grafana
+Logs estruturados
+Correlation ID nas requisições (um diferencial muito interessante)
