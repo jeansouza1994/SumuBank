@@ -65,7 +65,7 @@ Na Fase 6:
  PostgreSQL RabbitMQ AWS S3 Actuator
                                │
                                ▼
-                            Prometheus
+                     Prometheus
                                │
                                ▼
                            Grafana
