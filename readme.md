@@ -15,7 +15,7 @@ Desenvolver um projeto de portfólio que demonstre conhecimentos nas principais 
 * Líderes técnicos
 * Estudantes
 
-## Público-alvo
+## Principais funcionalidades
 
 * Cadastro e autenticação de usuários
 * Gerenciamento de contas bancárias
