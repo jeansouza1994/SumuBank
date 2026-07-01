@@ -1,0 +1,26 @@
+# Node
+frontend/node_modules/
+frontend/.angular/
+frontend/dist/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Ambiente
+.env
+.env.*
+
+# Java
+backend/target/
+*.class
+
+# Maven Wrapper (opcional)
+!.mvn/wrapper/maven-wrapper.jar
