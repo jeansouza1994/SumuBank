@@ -7,57 +7,72 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
 
+  // Layout de autenticação
   {
     path: '',
     loadComponent: () =>
-      import('./layouts/auth-layout/auth-layout.component')
-        .then(m => m.AuthLayoutComponent),
+      import('./layouts/auth-layout/auth-layout').then(
+        (m) => m.AuthLayout
+      ),
     children: [
       {
         path: 'login',
         loadComponent: () =>
-          import('./features/auth/login/login.component')
-            .then(m => m.LoginComponent)
+          import('./features/auth/login/login').then(
+            (m) => m.Login
+          )
       },
       {
         path: 'cadastro',
         loadComponent: () =>
-          import('./features/auth/cadastro/cadastro.component')
-            .then(m => m.CadastroComponent)
+          import('./features/auth/cadastro/cadastro').then(
+            (m) => m.Cadastro
+          )
+      }
+    ]
+  },
+
+  // Layout principal
+  {
+    path: '',
+    loadComponent: () =>
+      import('./layouts/main-layout/main-layout').then(
+        (m) => m.MainLayout
+      ),
+    children: [
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./features/dashboard/dashboard').then(
+            (m) => m.Dashboard
+          )
+      },
+      {
+        path: 'transferencia',
+        loadComponent: () =>
+          import('./features/transferencia/transferencia').then(
+            (m) => m.Transferencia
+          )
+      },
+      {
+        path: 'extrato',
+        loadComponent: () =>
+          import('./features/extrato/extrato').then(
+            (m) => m.Extrato
+          )
+      },
+      {
+        path: 'perfil',
+        loadComponent: () =>
+          import('./features/perfil/perfil').then(
+            (m) => m.Perfil
+          )
       }
     ]
   },
 
   {
-    path: '',
-    loadComponent: () =>
-      import('./layouts/main-layout/main-layout.component')
-        .then(m => m.MainLayoutComponent),
-    children: [
-      {
-        path: 'dashboard',
-        loadComponent: () =>
-          import('./features/dashboard/dashboard.component')
-            .then(m => m.DashboardComponent)
-      },
-      {
-        path: 'transferencia',
-        loadComponent: () =>
-          import('./features/transferencia/transferencia.component')
-            .then(m => m.TransferenciaComponent)
-      },
-      {
-        path: 'extrato',
-        loadComponent: () =>
-          import('./features/extrato/extrato.component')
-            .then(m => m.ExtratoComponent)
-      },
-      {
-        path: 'perfil',
-        loadComponent: () =>
-          import('./features/perfil/perfil.component')
-            .then(m => m.PerfilComponent)
-      }
-    ]
+    path: '**',
+    redirectTo: 'login'
   }
 ];
