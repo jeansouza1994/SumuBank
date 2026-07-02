@@ -1,1 +1,75 @@
-<h2>Login</h2>
+<div class="login-page">
+
+  <section class="login-card">
+
+    <h2>Login</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="email">Email</label>
+
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Digite seu email">
+
+        @if (loginForm.controls.email.touched && loginForm.controls.email.invalid) {
+
+          <small class="error">
+
+            @if (loginForm.controls.email.hasError('required')) {
+              O e-mail é obrigatório.
+            }
+
+            @if (loginForm.controls.email.hasError('email')) {
+              Informe um e-mail válido.
+            }
+
+          </small>
+
+        }
+
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha</label>
+
+        <input
+          id="senha"
+          type="password"
+          formControlName="senha"
+          placeholder="Digite sua senha">
+
+          @if (loginForm.controls.senha.touched && loginForm.controls.senha.invalid) {
+
+            <small class="error">
+
+              @if (loginForm.controls.senha.hasError('required')) {
+                A senha é obrigatória.
+              }
+
+              @if (loginForm.controls.senha.hasError('minlength')) {
+                A senha deve possuir pelo menos 8 caracteres.
+              }
+
+            </small>
+
+          }
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid">
+        Entrar
+      </button>
+
+    </form>
+
+    <p class="register">
+      Ainda não possui conta?
+      <a href="#">Cadastre-se</a>
+    </p>
+
+  </section>
+
+</div>

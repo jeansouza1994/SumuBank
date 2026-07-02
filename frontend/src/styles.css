@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+
+  /* Cores Primárias */
+  --color-primary: #2563EB;
+  --color-success: #10B981;
+  --color-danger: #EF4444;
+
+  /* Neutras */
+  --color-background: #FFFFFF;
+  --color-surface: #F3F4F6;
+
+  --color-text: #1F2937;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+}
