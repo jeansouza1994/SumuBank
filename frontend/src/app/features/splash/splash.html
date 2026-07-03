@@ -5,15 +5,20 @@
     alt="Logo do SumuBank"
     class="logo">
 
-  <h1>SumuBank</h1>
-
   <p>Seu banco digital seguro</p>
 
-  <div class="progress">
+<div class="progress">
 
-    <div class="progress-bar"></div>
+    <div
+        class="progress-bar"
+        [style.width.%]="progress">
+    </div>
 
-  </div>
+</div>
+
+<p class="loading">
+    {{ progress }}%
+</p>
 
   <span class="version">
     v0.1.0

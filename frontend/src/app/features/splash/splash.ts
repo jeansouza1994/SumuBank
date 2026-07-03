@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,14 +10,32 @@ export class Splash {
 
   private router = inject(Router);
 
+  private cdr = inject(ChangeDetectorRef);
+
+  progress = 0;
+
   constructor() {
 
-    setTimeout(() => {
+  const interval = setInterval(() => {
 
-      this.router.navigate(['/login']);
+    if (this.progress < 100) {
 
-    }, 2000);
+      this.progress +=10;
 
-  }
+      this.cdr.detectChanges();
+
+    } else {
+
+      clearInterval(interval);
+
+      setTimeout(() => {
+        this.router.navigate(['/login']);
+      }, 30000);
+
+    }
+
+  }, 300);
+
+}
 
 }
