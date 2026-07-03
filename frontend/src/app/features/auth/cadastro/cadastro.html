@@ -1,1 +1,114 @@
-<h2>Cadastro</h2>
+<section class="login-card">
+
+  <h2>Criar conta</h2>
+
+  <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="nome">Nome completo</label>
+      <input
+        id="nome"
+        type="text"
+        formControlName="nome"
+        placeholder="Digite seu nome completo">
+
+      @if (cadastroForm.controls.nome.touched && cadastroForm.controls.nome.invalid) {
+
+        <small class="error">
+
+          @if (cadastroForm.controls.nome.hasError('required')) {
+            O nome é obrigatório.
+          }
+
+          @if (cadastroForm.controls.nome.hasError('minlength')) {
+            O nome deve possuir pelo menos 3 caracteres.
+          }
+
+        </small>
+
+      }
+
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Digite seu e-mail">
+
+      @if (cadastroForm.controls.email.touched && cadastroForm.controls.email.invalid) {
+
+        <small class="error">
+
+          @if (cadastroForm.controls.email.hasError('required')) {
+            O e-mail é obrigatório.
+          }
+
+          @if (cadastroForm.controls.email.hasError('email')) {
+            Informe um e-mail válido.
+          }
+
+        </small>
+
+      }
+
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input
+        id="senha"
+        type="password"
+        formControlName="senha"
+        placeholder="Digite sua senha">
+
+      @if (cadastroForm.controls.senha.touched && cadastroForm.controls.senha.invalid) {
+
+        <small class="error">
+
+          @if (cadastroForm.controls.senha.hasError('required')) {
+            A senha é obrigatória.
+          }
+
+          @if (cadastroForm.controls.senha.hasError('minlength')) {
+            A senha deve possuir pelo menos 8 caracteres.
+          }
+
+        </small>
+
+      }
+
+    </div>
+
+    <div class="form-group">
+      <label for="confirmarSenha">Confirmar senha</label>
+      <input
+        id="confirmarSenha"
+        type="password"
+        formControlName="confirmarSenha"
+        placeholder="Confirme sua senha">
+
+    @if (cadastroForm.hasError('passwordMismatch') && cadastroForm.controls.confirmarSenha.touched) {
+
+      <small class="error">
+        As senhas não coincidem.
+      </small>
+
+    }
+
+    </div>
+
+    <button type="submit" [disabled]="cadastroForm.invalid">
+      Criar conta
+    </button>
+
+  </form>
+
+  <p class="register">
+    Já possui conta?
+    <a routerLink="/login">Faça login</a>
+  </p>
+
+</section>
