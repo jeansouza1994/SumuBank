@@ -3,8 +3,15 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'splash',
     pathMatch: 'full'
+  },
+
+  {
+    path: 'splash',
+    loadComponent: () =>
+      import('./features/splash/splash')
+        .then(m => m.Splash)
   },
 
   // Layout de autenticação
