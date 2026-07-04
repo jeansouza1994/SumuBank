@@ -14,27 +14,31 @@ export class Splash {
 
   progress = 0;
 
+  isLeaving = false;
+
   constructor() {
 
   const interval = setInterval(() => {
 
     if (this.progress < 100) {
 
-      this.progress +=10;
+      this.progress +=5;
 
       this.cdr.detectChanges();
 
     } else {
 
+      this.isLeaving = true;
+
       clearInterval(interval);
 
       setTimeout(() => {
         this.router.navigate(['/login']);
-      }, 30000);
+      }, 2000);
 
     }
 
-  }, 300);
+  });
 
 }
 

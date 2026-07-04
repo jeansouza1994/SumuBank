@@ -41,9 +41,9 @@ p {
 
     height: 100%;
 
-    background: var(--primary-color);
+    background: var(--color-primary);
 
-    transition: width .08s linear;
+    transition: width .8s linear;
 
 }
 
@@ -54,6 +54,12 @@ p {
     color: #9CA3AF;
 
     font-size: 12px;
+
+}
+
+.fade-out {
+
+    animation: fadeOut 10s ease forwards;
 
 }
 
@@ -84,6 +90,26 @@ p {
         opacity: 1;
 
         transform: translateY(0);
+
+    }
+
+}
+
+@keyframes fadeOut {
+
+    from {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform: translateY(-12px);
 
     }
 
