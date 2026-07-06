@@ -1,1 +1,48 @@
-<h2>dashboard</h2>
+<main class="dashboard-content">
+
+  <app-balance-card [saldo]="saldoConta()"></app-balance-card>
+
+  <section class="quick-actions">
+
+    <button>Depositar</button>
+
+    <button>Transferir</button>
+
+    <button>Extrato</button>
+
+  </section>
+
+  <section class="transactions">
+
+    <h2>Últimas movimentações</h2>
+
+    <ul>
+
+      @for (movimentacao of movimentacoes(); track movimentacao.id) {
+
+        <li>
+
+          <span>
+
+            {{ movimentacao.descricao }}
+
+          </span>
+
+          <strong
+            [class.entrada]="movimentacao.tipo === 'entrada'"
+            [class.saida]="movimentacao.tipo === 'saida'">
+
+              {{ movimentacao.tipo === 'entrada' ? '+' : '-' }}
+              {{ movimentacao.valor | currency:'BRL' }}
+
+          </strong>
+
+        </li>
+
+        }
+
+    </ul>
+
+  </section>
+
+</main>

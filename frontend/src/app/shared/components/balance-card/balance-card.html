@@ -1,0 +1,40 @@
+  <section class="balance-card">
+
+    <div class="balance-header">
+
+      <span class="balance-label">
+        Saldo disponível
+      </span>
+
+          <button
+        class="toggle-button"
+        (click)="toggleSaldo()">
+
+          <img
+          [src]="mostrarSaldo() ? '/images/mostrar.png' : '/images/ocultar.png'"
+          [alt]="mostrarSaldo() ? 'Ocultar saldo' : 'Mostrar saldo'"
+          class="toggle-icon">
+
+      </button>
+
+    </div>
+
+    <div class="balance-body">
+      <p class="balance">
+
+        @if (mostrarSaldo()) {
+
+          {{ saldo() | currency:'BRL' }}
+
+        } @else {
+
+          ••••••••••
+
+        }
+
+      </p>
+
+
+    </div>
+
+  </section>

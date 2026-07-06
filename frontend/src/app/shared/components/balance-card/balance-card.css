@@ -1,0 +1,110 @@
+.balance-header {
+
+    display: flex;
+
+    align-items: center center;
+
+}
+
+.balance-card {
+
+    margin-top: 32px;
+
+    padding: 32px;
+
+    background: var(--color-primary);
+
+    color: var(--color-background);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-md);
+
+}
+
+.balance-card h2 {
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    opacity: .9;
+
+}
+
+.balance {
+
+    margin-top: 12px;
+
+    margin-right: 10px;
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    color: var(--color-background);
+
+}
+
+.balance-label {
+
+    display: block;
+
+    font-size: 15px;
+
+    opacity: .8;
+
+    margin-right: 10px;
+
+    margin-top: 2px;
+
+}
+
+.balance-body {
+
+    display: flex;
+
+    align-items: center;
+
+    margin-top: 24px;
+
+}
+
+.toggle-icon {
+
+    width: 24px;
+
+    height: 24px;
+
+    display: block;
+
+}
+
+.toggle-button {
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 0;
+}
+
+.toggle-button:hover {
+
+    opacity: .8;
+
+}
+
+.toggle-container {
+
+    display: flex;
+
+    margin-left: 12px;
+
+    font-size: 14px;
+
+    opacity: .8;
+
+}

@@ -1,0 +1,91 @@
+.dashboard-content {
+
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+    padding: 0 24px;
+
+}
+
+.quick-actions {
+
+    display: flex;
+
+    gap: 16px;
+
+    margin-top: 32px;
+
+}
+
+.quick-actions button {
+
+    flex: 1;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--color-primary);
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.quick-actions button:hover {
+
+    opacity: .9;
+
+}
+
+.transactions {
+
+    margin-top: 40px;
+
+}
+
+.transactions h2 {
+
+    margin-bottom: 20px;
+
+}
+
+.transactions ul {
+
+    list-style: none;
+
+}
+
+.transactions li {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #E5E7EB;
+
+}
+
+.entrada {
+
+    color: var(--color-success);
+
+}
+
+.saida {
+
+    color: var(--color-danger);
+
+}
