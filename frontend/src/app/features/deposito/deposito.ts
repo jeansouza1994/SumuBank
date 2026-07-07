@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { Location } from '@angular/common';
 import { PageHeader } from '../../shared/components/page-header/page-header';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
+import { DepositoService } from '../../shared/services/deposito.service';
+import { DepositoRequest } from '../../shared/models/deposito-request';
 
 @Component({
   selector: 'app-deposito',
@@ -10,6 +12,8 @@ import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
   styleUrl: './deposito.css',
 })
 export class Deposito {
+
+  private depositoService = inject(DepositoService);
 
   private location = inject(Location);
 
@@ -33,7 +37,25 @@ export class Deposito {
 
   onSubmit() {
 
-    console.log(this.depositoForm.value);
+    if (this.depositoForm.invalid) {
+      return;
+    }
+
+    const deposito: DepositoRequest = {
+
+      valor: this.depositoForm.controls.valor.value!,
+
+      descricao: this.depositoForm.controls.descricao.value!
+
+    };
+
+    this.depositoService
+      .depositar(deposito)
+      .subscribe(() => {
+
+        console.log('Depósito realizado com sucesso!');
+
+      });
 
   }
 
