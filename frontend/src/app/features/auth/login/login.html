@@ -17,7 +17,7 @@
 
         @if (loginForm.controls.email.touched && loginForm.controls.email.invalid) {
 
-          <small class="error">
+          <small class="error-message">
 
             @if (loginForm.controls.email.hasError('required')) {
               O e-mail é obrigatório.
@@ -44,7 +44,7 @@
 
           @if (loginForm.controls.senha.touched && loginForm.controls.senha.invalid) {
 
-            <small class="error">
+            <small class="error-message">
 
               @if (loginForm.controls.senha.hasError('required')) {
                 A senha é obrigatória.
@@ -59,7 +59,7 @@
           }
       </div>
 
-      <button type="submit" [disabled]="loginForm.invalid">
+      <button class="btn-primary" type="submit" [disabled]="loginForm.invalid">
         Entrar
       </button>
 

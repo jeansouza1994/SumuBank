@@ -55,6 +55,13 @@ export const routes: Routes = [
           )
       },
       {
+        path: 'deposito',
+        loadComponent: () =>
+          import('./features/deposito/deposito').then(
+            (m) => m.Deposito
+          )
+      },
+      {
         path: 'transferencia',
         loadComponent: () =>
           import('./features/transferencia/transferencia').then(
