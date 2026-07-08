@@ -149,3 +149,10 @@ body {
     cursor: not-allowed;
 
 }
+
+.form-description {
+  margin-bottom: 24px;
+  color: #6B7280;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}

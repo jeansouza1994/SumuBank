@@ -1,14 +1,14 @@
 <main class="page-content">
 
-  <app-balance-card [saldo]="saldoConta()"></app-balance-card>
+  <app-balance-card [saldo]="account.saldo()"></app-balance-card>
 
   <section class="quick-actions">
 
     <button routerLink="/deposito">Depositar</button>
 
-    <button>Transferir</button>
+    <button routerLink="/transferencia">Transferir</button>
 
-    <button>Extrato</button>
+    <button routerLink="/extrato">Extrato</button>
 
   </section>
 

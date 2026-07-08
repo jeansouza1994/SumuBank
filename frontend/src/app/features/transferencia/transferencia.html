@@ -1,1 +1,82 @@
-<h2>transferencia</h2>
+<main class="page-content">
+
+  <app-page-header
+    title="Transferência">
+  </app-page-header>
+
+  <section class="form-card">
+
+    <h2>Nova transferência</h2>
+
+    <p class="form-description">
+      Informe o CPF ou o e-mail do destinatário para realizar a transferência.
+    </p>
+
+    <form [formGroup]="transferenciaForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+
+        <label for="destinatario">
+          CPF ou E-mail do destinatário
+        </label>
+
+        <input
+          id="destinatario"
+          type="text"
+          formControlName="destinatario"
+          placeholder="Digite o CPF ou e-mail">
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="valor">
+          Valor da transferência
+        </label>
+
+        <input
+          id="valor"
+          type="number"
+          formControlName="valor"
+          placeholder="0,00">
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="descricao">
+          Descrição (opcional)
+        </label>
+
+        <input
+          id="descricao"
+          type="text"
+          formControlName="descricao"
+          placeholder="Ex.: Aluguel">
+
+      </div>
+
+      @if (mensagemErro()) {
+
+        <p class="error-message">
+
+          {{ mensagemErro() }}
+
+        </p>
+
+      }
+
+      <button
+        class="btn-primary"
+        type="submit"
+        [disabled]="transferenciaForm.invalid">
+
+        Confirmar transferência
+
+      </button>
+
+    </form>
+
+  </section>
+
+</main>

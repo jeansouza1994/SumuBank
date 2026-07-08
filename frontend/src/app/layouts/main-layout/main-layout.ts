@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AccountService } from '../../shared/services/account.service';
 
 @Component({
   selector: 'app-main-layout',
@@ -7,4 +8,8 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css',
 })
-export class MainLayout {}
+export class MainLayout {
+  private accountService = inject(AccountService);
+
+  account = this.accountService;
+}
