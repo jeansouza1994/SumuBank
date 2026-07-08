@@ -1,1 +1,25 @@
-<h2>extrato</h2>
+<main class="page-content">
+
+  <app-page-header
+    title="Extrato">
+  </app-page-header>
+
+  <section class="transactions">
+
+    <h2>Movimentações</h2>
+
+    <ul>
+
+      @for (movimentacao of movimentacoes(); track movimentacao.id) {
+
+        <app-transaction-item
+          [movimentacao]="movimentacao">
+        </app-transaction-item>
+
+      }
+
+    </ul>
+
+  </section>
+
+</main>

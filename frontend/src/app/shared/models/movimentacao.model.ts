@@ -1,3 +1,5 @@
+import { TipoMovimentacao } from './tipo-movimentacao';
+
 export interface Movimentacao {
 
   id: number;
@@ -6,6 +8,8 @@ export interface Movimentacao {
 
   valor: number;
 
-  tipo: 'entrada' | 'saida';
+  tipo: TipoMovimentacao;
+
+  data: Date;
 
 }

@@ -1,0 +1,67 @@
+.transaction-item {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid #e5e7eb;
+
+}
+
+.transaction-info {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+}
+
+.transaction-info h3 {
+
+  margin: 0;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+}
+
+.transaction-info small {
+
+  font-size: .85rem;
+
+  color: #6b7280;
+
+}
+
+.transaction-item strong {
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+}
+
+.entrada {
+
+  color: #16a34a;
+
+}
+
+.saida {
+
+  color: #dc2626;
+
+}
+
+.transactions ul li:last-child {
+
+  border-bottom: none;
+
+}

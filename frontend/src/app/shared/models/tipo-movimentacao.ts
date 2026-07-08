@@ -1,0 +1,1 @@
+export type TipoMovimentacao = 'entrada' | 'saida';

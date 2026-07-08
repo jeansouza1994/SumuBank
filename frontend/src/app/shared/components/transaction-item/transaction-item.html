@@ -1,0 +1,30 @@
+<li class="transaction-item">
+
+  <div class="transaction-info">
+
+    <h3>
+
+      {{ movimentacao().tipo === 'entrada' ? '↓' : '↑' }}
+
+      {{ movimentacao().descricao }}
+
+    </h3>
+
+    <small>
+
+      {{ movimentacao().data | date:'dd/MM/yyyy • HH:mm' }}
+
+    </small>
+
+  </div>
+
+  <strong
+    [class.entrada]="movimentacao().tipo === 'entrada'"
+    [class.saida]="movimentacao().tipo === 'saida'">
+
+    {{ movimentacao().tipo === 'entrada' ? '+' : '-' }}
+    {{ movimentacao().valor | currency:'BRL' }}
+
+  </strong>
+
+</li>

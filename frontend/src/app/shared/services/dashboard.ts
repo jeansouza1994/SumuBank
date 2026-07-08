@@ -12,19 +12,22 @@ export class DashboardService {
       id: 1,
       descricao: 'Depósito',
       valor: 500,
-      tipo: 'entrada'
+      tipo: 'entrada',
+      data: new Date()
     },
     {
       id: 2,
       descricao: 'PIX enviado',
       valor: 120,
-      tipo: 'saida'
+      tipo: 'saida',
+      data: new Date()
     },
     {
       id: 3,
       descricao: 'Salário',
       valor: 3000,
-      tipo: 'entrada'
+      tipo: 'entrada',
+      data: new Date()
     }
 
   ];
