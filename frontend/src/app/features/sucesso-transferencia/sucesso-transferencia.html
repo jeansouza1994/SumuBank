@@ -1,0 +1,72 @@
+<main class="page-content">
+
+  <app-page-header
+    title="Transferência">
+  </app-page-header>
+
+  <section class="form-card">
+
+    <div class="success-icon">
+
+      ✅
+
+    </div>
+
+    <h2>
+
+      Transferência realizada!
+
+    </h2>
+
+    <p class="success-message">
+
+      Sua transferência foi realizada com sucesso.
+
+    </p>
+
+    <hr>
+
+    <div class="info-item">
+
+      <span>Destinatário</span>
+
+      <strong>{{ transferencia.destinatario }}</strong>
+
+    </div>
+
+    <div class="info-item">
+
+      <span>Valor</span>
+
+      <strong>{{ transferencia.valor | currency:'BRL' }}</strong>
+
+    </div>
+
+    <div class="info-item">
+
+      <span>Descrição</span>
+
+      <strong>{{ transferencia.descricao }}</strong>
+
+    </div>
+
+    <button
+    type="button"
+    class="share-button"
+    (click)="compartilharComprovante()">
+
+        Compartilhar comprovante
+
+    </button>
+
+    <a
+    routerLink="/dashboard"
+    class="back-link">
+
+        ← Voltar ao Dashboard
+
+    </a>
+
+  </section>
+
+</main>

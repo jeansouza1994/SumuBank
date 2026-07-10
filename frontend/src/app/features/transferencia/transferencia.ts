@@ -5,6 +5,7 @@ import { TransferenciaService } from '../../shared/services/transferencia.servic
 import { TransferenciaRequest } from '../../shared/models/transferencia-request';
 import { Location } from '@angular/common';
 import { AccountService } from '../../shared/services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transferencia',
@@ -19,6 +20,8 @@ export class Transferencia {
   private location = inject(Location);
 
   private fb = inject(FormBuilder);
+
+  private router = inject(Router);
 
   private accountService = inject(AccountService);
 
@@ -77,7 +80,14 @@ export class Transferencia {
       .transferir(transferencia)
       .subscribe(() => {
 
-        console.log('Transferência realizada com sucesso.');
+        this.router.navigate(
+          ['/sucesso-transferencia'],
+          {
+            state: {
+              transferencia
+            }
+          }
+        );
 
       });
 

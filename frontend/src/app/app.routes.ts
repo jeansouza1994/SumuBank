@@ -69,6 +69,13 @@ export const routes: Routes = [
           )
       },
       {
+        path: 'sucesso-transferencia',
+        loadComponent: () =>
+          import('./features/sucesso-transferencia/sucesso-transferencia').then(
+            (m) => m.SucessoTransferencia
+          )
+      },
+      {
         path: 'extrato',
         loadComponent: () =>
           import('./features/extrato/extrato').then(
