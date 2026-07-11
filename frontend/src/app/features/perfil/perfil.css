@@ -1,0 +1,103 @@
+.profile-avatar {
+
+  width: 90px;
+
+  height: 90px;
+
+  margin: 0 auto 24px;
+
+  border-radius: 50%;
+
+  background: var(--color-primary);
+
+  color: white;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 2.5rem;
+
+  font-weight: bold;
+
+}
+
+.form-card h2 {
+
+  text-align: center;
+
+  margin-bottom: 8px;
+
+}
+
+.profile-email {
+
+  text-align: center;
+
+  color: #6b7280;
+
+  margin-bottom: 32px;
+
+}
+
+.info-item {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 16px 0;
+
+  border-bottom: 1px solid #e5e7eb;
+
+}
+
+.info-item span {
+
+  color: #6b7280;
+
+}
+
+.info-item strong {
+
+  font-weight: 600;
+
+}
+
+.edit-button {
+
+  width: 100%;
+
+  margin-top: 32px;
+
+}
+
+.edit-link {
+
+  display: block;
+
+  width: fit-content;
+
+  margin: 28px auto 0;
+
+  color: var(--color-primary);
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: color .2s ease;
+
+}
+
+.edit-link:hover {
+
+  text-decoration: underline;
+
+}

@@ -1,1 +1,75 @@
-<h2>perfil</h2>
+<main class="page-content">
+
+  <app-page-header
+    title="Meu Perfil">
+  </app-page-header>
+
+  <section class="form-card">
+
+    <div class="profile-avatar">
+
+      {{ account.nome().charAt(0).toUpperCase() }}
+
+    </div>
+
+    <h2>
+
+      {{ account.nome() }}
+
+    </h2>
+
+    <p class="profile-email">
+
+      {{ account.email() }}
+
+    </p>
+
+    <hr>
+
+    <div class="info-item">
+
+      <span>CPF</span>
+
+      <strong>{{ account.cpf() }}</strong>
+
+    </div>
+
+    <div class="info-item">
+
+      <span>Agência</span>
+
+      <strong>{{ account.agencia() }}</strong>
+
+    </div>
+
+    <div class="info-item">
+
+      <span>Conta</span>
+
+      <strong>{{ account.conta() }}</strong>
+
+    </div>
+
+    <div class="info-item">
+
+      <span>Saldo Atual</span>
+
+      <strong>
+
+        {{ account.saldo() | currency:'BRL' }}
+
+      </strong>
+
+    </div>
+
+    <a
+      class="edit-link"
+      (click)="editarPerfil()">
+
+      ✏️ Editar perfil
+
+    </a>
+
+  </section>
+
+</main>

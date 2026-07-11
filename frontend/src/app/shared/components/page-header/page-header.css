@@ -6,6 +6,10 @@
 
     align-items: center;
 
+    max-width: 600px;
+
+    margin: 0 auto;
+
     margin-bottom: 2rem;
 
     padding-bottom: 1rem;

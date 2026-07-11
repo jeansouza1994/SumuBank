@@ -17,7 +17,11 @@
       Olá, {{ account.nome() }}
     </span>
 
-    <div class="avatar"></div>
+    <a class="avatar" routerLink="/perfil">
+
+      {{ account.nome().charAt(0).toUpperCase() }}
+
+    </a>
 
   </div>
 

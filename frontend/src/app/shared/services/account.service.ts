@@ -13,4 +13,8 @@ export class AccountService {
 
   conta = signal('100001-9');
 
+  cpf = signal('123.456.789-00');
+
+  email = signal('jean.souza@example.com');
+
 }
