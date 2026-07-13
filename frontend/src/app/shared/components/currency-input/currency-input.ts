@@ -23,7 +23,7 @@ export class CurrencyInput implements ControlValueAccessor {
 
   disabled = false;
 
-  private onChange = (_: number) => {};
+  private onChange = (_: number | null) => {};
 
   private onTouched = () => {};
 
@@ -33,19 +33,34 @@ export class CurrencyInput implements ControlValueAccessor {
 
     const apenasNumeros = input.value.replace(/\D/g, '');
 
+    if (!apenasNumeros) {
+
+      this.valor.set('');
+
+      input.value = '';
+
+      this.onChange(null);
+
+      this.onTouched();
+
+      return;
+
+    }
+
     const numero = Number(apenasNumeros) / 100;
 
-    this.valor.set(
-
-      numero.toLocaleString(
-        'pt-BR',
-        {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
-        }
-      )
-
+    const valorFormatado = numero.toLocaleString(
+      'pt-BR',
+      {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }
     );
+
+    this.valor.set(valorFormatado);
+
+    // Atualiza imediatamente o valor exibido no input
+    input.value = valorFormatado;
 
     this.onChange(numero);
 

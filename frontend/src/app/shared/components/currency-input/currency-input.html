@@ -8,9 +8,12 @@
 
   <input
     type="text"
+    inputmode="numeric"
+    autocomplete="off"
+    spellcheck="false"
     [value]="valor()"
     [disabled]="disabled"
     (input)="onInput($event)"
-    [placeholder]="'0,00'">
+    placeholder="0,00">
 
 </div>
