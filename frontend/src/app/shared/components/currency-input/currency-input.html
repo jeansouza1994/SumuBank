@@ -1,0 +1,16 @@
+<div class="currency-input">
+
+  <label for="valor">
+
+    {{ label() }}
+
+  </label>
+
+  <input
+    type="text"
+    [value]="valor()"
+    [disabled]="disabled"
+    (input)="onInput($event)"
+    [placeholder]="'0,00'">
+
+</div>

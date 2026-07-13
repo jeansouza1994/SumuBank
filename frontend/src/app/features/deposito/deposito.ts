@@ -4,10 +4,11 @@ import { PageHeader } from '../../shared/components/page-header/page-header';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import { DepositoService } from '../../shared/services/deposito.service';
 import { DepositoRequest } from '../../shared/models/deposito-request';
+import { CurrencyInput } from '../../shared/components/currency-input/currency-input';
 
 @Component({
   selector: 'app-deposito',
-  imports: [PageHeader, ReactiveFormsModule],
+  imports: [PageHeader, ReactiveFormsModule, CurrencyInput],
   templateUrl: './deposito.html',
   styleUrl: './deposito.css',
 })

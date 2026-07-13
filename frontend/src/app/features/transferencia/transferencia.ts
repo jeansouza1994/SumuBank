@@ -6,10 +6,11 @@ import { TransferenciaRequest } from '../../shared/models/transferencia-request'
 import { Location } from '@angular/common';
 import { AccountService } from '../../shared/services/account.service';
 import { Router } from '@angular/router';
+import { CurrencyInput } from '../../shared/components/currency-input/currency-input';
 
 @Component({
   selector: 'app-transferencia',
-  imports: [PageHeader, ReactiveFormsModule],
+  imports: [PageHeader, ReactiveFormsModule, CurrencyInput],
   templateUrl: './transferencia.html',
   styleUrl: './transferencia.css',
 })

@@ -12,15 +12,10 @@
 
     <div class="form-group">
 
-      <label for="valor">
-        Valor
-      </label>
-
-      <input
-        id="valor"
-        type="number"
+      <app-currency-input
         formControlName="valor"
-        placeholder="0,00">
+        label="Valor do depósito">
+      </app-currency-input>
 
         @if (depositoForm.controls.valor.touched && depositoForm.controls.valor.invalid) {
 
