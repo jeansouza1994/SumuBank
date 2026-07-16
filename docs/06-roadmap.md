@@ -117,15 +117,3 @@ Entregas
 * Investimentos.
 * Empréstimos.
 * Agendamento de transferências.
-
-## Critério de Conclusão
-
-| Fase                   | Considerada concluída quando...                                   | Status           |
-| ---------------------- | ----------------------------------------------------------------- | ---------------- |
-| Planejamento           | Toda a documentação estiver finalizada.                           | ✅ Concluída      |
-| MVP                    | O usuário conseguir criar uma conta e realizar uma transferência. | 🚧 Em construção |
-| Segurança              | Apenas usuários autenticados acessarem áreas protegidas.          | ⏳ A realizar     |
-| Qualidade              | Os testes críticos estiverem implementados e passando.            | ⏳ A realizar     |
-| Comunicação Assíncrona | As notificações forem processadas via RabbitMQ.                   | ⏳ A realizar     |
-| Deploy                 | A aplicação estiver disponível publicamente.                      | ⏳ A realizar     |
-| Observabilidade        | As métricas puderem ser visualizadas no Grafana.                  | ⏳ A realizar     |
