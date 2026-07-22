@@ -7,6 +7,7 @@ import com.jeansouza.sumubank.business.entity.TipoMovimentacao;
 import com.jeansouza.sumubank.infrastructure.repository.ContaRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Service
@@ -36,7 +37,7 @@ public class ContaService {
 
         Conta conta = contaRepository.findById(contaId).orElseThrow(() -> new RuntimeException("Conta não encontrada."));
 
-        conta.setSaldo(conta.getSaldo().add(request.getValor()));
+        creditar(conta, request.getValor());
 
         contaRepository.save(conta);
 
@@ -48,5 +49,49 @@ public class ContaService {
                 .saldoAtual(conta.getSaldo())
                 .dataHora(dataHora)
                 .build();
+    }
+
+    public Conta buscarContaDestino(String destinatario) {
+
+        if(isCpf(destinatario)) {
+            String cpf = destinatario.replaceAll("\\D", "");
+            return contaRepository.findByUsuarioCpf(cpf).orElseThrow();
+        }
+
+        return contaRepository.findByUsuarioEmail(destinatario).orElseThrow();
+
+    }
+
+    private boolean isCpf(String destinatario) {
+        String cpf = destinatario.replaceAll("\\D", "");
+        return cpf.length() == 11;
+    }
+
+    public Conta buscarContaPorId(Long id) {
+        return contaRepository.findByUsuarioId(id).orElseThrow();
+    }
+
+    public void validarSaldo(Conta conta, BigDecimal valor) {
+
+        if (conta.getSaldo().compareTo(valor) < 0) {
+            throw new RuntimeException("Saldo insuficiente.");
+        }
+
+    }
+
+    public void creditar(Conta conta, BigDecimal valor) {
+        conta.setSaldo(conta.getSaldo().add(valor));
+    }
+
+    public void debitar(Conta conta, BigDecimal valor) {
+
+        validarSaldo(conta, valor);
+
+        conta.setSaldo(conta.getSaldo().subtract(valor));
+
+    }
+
+    public void salvar(Conta conta) {
+        contaRepository.save(conta);
     }
 }
