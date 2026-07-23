@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class MovimentacaoService {
@@ -29,5 +30,9 @@ public class MovimentacaoService {
                 .build();
 
         movimentacaoRepository.save(movimentacao);
+    }
+
+    public List<Movimentacao> buscarMovimentacoesDaConta(Long contaId) {
+        return movimentacaoRepository.findByContaIdOrderByDataHoraDesc(contaId);
     }
 }

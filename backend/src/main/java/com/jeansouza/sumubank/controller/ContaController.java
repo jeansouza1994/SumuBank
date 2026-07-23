@@ -3,6 +3,7 @@ package com.jeansouza.sumubank.controller;
 import com.jeansouza.sumubank.business.dto.request.DepositoRequest;
 import com.jeansouza.sumubank.business.dto.request.TransferenciaRequest;
 import com.jeansouza.sumubank.business.dto.response.DepositoResponse;
+import com.jeansouza.sumubank.business.dto.response.ExtratoResponse;
 import com.jeansouza.sumubank.business.dto.response.TransferenciaResponse;
 import com.jeansouza.sumubank.business.service.ContaService;
 import com.jeansouza.sumubank.business.service.TransferenciaService;
@@ -31,6 +32,13 @@ public class ContaController {
     public TransferenciaResponse transferir(@PathVariable Long id, @RequestBody TransferenciaRequest request) {
 
         return transferenciaService.transferir(id, request);
+
+    }
+
+    @GetMapping("/{id}/extrato")
+    public ExtratoResponse buscarExtrato(@PathVariable Long id) {
+
+        return contaService.buscarExtrato(id);
 
     }
 }

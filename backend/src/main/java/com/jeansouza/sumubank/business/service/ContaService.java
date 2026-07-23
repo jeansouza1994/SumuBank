@@ -2,13 +2,17 @@ package com.jeansouza.sumubank.business.service;
 
 import com.jeansouza.sumubank.business.dto.request.DepositoRequest;
 import com.jeansouza.sumubank.business.dto.response.DepositoResponse;
+import com.jeansouza.sumubank.business.dto.response.ExtratoResponse;
+import com.jeansouza.sumubank.business.dto.response.MovimentacaoResponse;
 import com.jeansouza.sumubank.business.entity.Conta;
+import com.jeansouza.sumubank.business.entity.Movimentacao;
 import com.jeansouza.sumubank.business.entity.TipoMovimentacao;
 import com.jeansouza.sumubank.infrastructure.repository.ContaRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class ContaService {
@@ -68,6 +72,7 @@ public class ContaService {
     }
 
     public Conta buscarContaPorId(Long id) {
+
         return contaRepository.findByUsuarioId(id).orElseThrow();
     }
 
@@ -80,6 +85,7 @@ public class ContaService {
     }
 
     public void creditar(Conta conta, BigDecimal valor) {
+
         conta.setSaldo(conta.getSaldo().add(valor));
     }
 
@@ -93,5 +99,30 @@ public class ContaService {
 
     public void salvar(Conta conta) {
         contaRepository.save(conta);
+    }
+
+    public ExtratoResponse buscarExtrato(Long contaId) {
+
+        Conta conta = buscarContaPorId(contaId);
+
+        List<Movimentacao> movimentacoes = movimentacaoService.buscarMovimentacoesDaConta(contaId);
+
+        List<MovimentacaoResponse> movimentacoesResponse =
+                movimentacoes.stream()
+                        .map(movimentacao ->
+
+                                MovimentacaoResponse.builder()
+                                        .tipoMovimentacao(movimentacao.getTipo())
+                                        .valor(movimentacao.getValor())
+                                        .descricao(movimentacao.getDescricao())
+                                        .dataHora(movimentacao.getDataHora())
+                                        .build())
+                        .toList();
+
+        return ExtratoResponse.builder()
+                .contaId(conta.getId())
+                .saldoAtual(conta.getSaldo())
+                .movimentacoes(movimentacoesResponse)
+                .build();
     }
 }
