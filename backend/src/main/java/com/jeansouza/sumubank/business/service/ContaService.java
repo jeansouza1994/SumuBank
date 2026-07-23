@@ -4,6 +4,7 @@ import com.jeansouza.sumubank.business.dto.request.DepositoRequest;
 import com.jeansouza.sumubank.business.dto.response.DepositoResponse;
 import com.jeansouza.sumubank.business.dto.response.ExtratoResponse;
 import com.jeansouza.sumubank.business.dto.response.MovimentacaoResponse;
+import com.jeansouza.sumubank.business.dto.response.SaldoResponse;
 import com.jeansouza.sumubank.business.entity.Conta;
 import com.jeansouza.sumubank.business.entity.Movimentacao;
 import com.jeansouza.sumubank.business.entity.TipoMovimentacao;
@@ -123,6 +124,16 @@ public class ContaService {
                 .contaId(conta.getId())
                 .saldoAtual(conta.getSaldo())
                 .movimentacoes(movimentacoesResponse)
+                .build();
+    }
+
+    public SaldoResponse consultarSaldo(Long contaId) {
+
+        Conta conta = buscarContaPorId(contaId);
+
+        return SaldoResponse.builder()
+                .contaId(conta.getId())
+                .saldoAtual(conta.getSaldo())
                 .build();
     }
 }

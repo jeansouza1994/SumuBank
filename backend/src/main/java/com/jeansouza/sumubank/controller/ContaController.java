@@ -4,6 +4,7 @@ import com.jeansouza.sumubank.business.dto.request.DepositoRequest;
 import com.jeansouza.sumubank.business.dto.request.TransferenciaRequest;
 import com.jeansouza.sumubank.business.dto.response.DepositoResponse;
 import com.jeansouza.sumubank.business.dto.response.ExtratoResponse;
+import com.jeansouza.sumubank.business.dto.response.SaldoResponse;
 import com.jeansouza.sumubank.business.dto.response.TransferenciaResponse;
 import com.jeansouza.sumubank.business.service.ContaService;
 import com.jeansouza.sumubank.business.service.TransferenciaService;
@@ -39,6 +40,13 @@ public class ContaController {
     public ExtratoResponse buscarExtrato(@PathVariable Long id) {
 
         return contaService.buscarExtrato(id);
+
+    }
+
+    @GetMapping("/{id}/saldo")
+    public SaldoResponse consultarSaldo(@PathVariable Long id) {
+
+        return contaService.consultarSaldo(id);
 
     }
 }
