@@ -1,13 +1,14 @@
 package com.jeansouza.sumubank.business.service;
 
 import com.jeansouza.sumubank.business.dto.request.DepositoRequest;
-import com.jeansouza.sumubank.business.dto.response.DepositoResponse;
-import com.jeansouza.sumubank.business.dto.response.ExtratoResponse;
-import com.jeansouza.sumubank.business.dto.response.MovimentacaoResponse;
-import com.jeansouza.sumubank.business.dto.response.SaldoResponse;
+import com.jeansouza.sumubank.business.dto.request.PerfilRequest;
+import com.jeansouza.sumubank.business.dto.request.UsuarioRequest;
+import com.jeansouza.sumubank.business.dto.response.*;
 import com.jeansouza.sumubank.business.entity.Conta;
 import com.jeansouza.sumubank.business.entity.Movimentacao;
 import com.jeansouza.sumubank.business.entity.TipoMovimentacao;
+import com.jeansouza.sumubank.business.entity.Usuario;
+import com.jeansouza.sumubank.business.mapper.UsuarioMapper;
 import com.jeansouza.sumubank.infrastructure.repository.ContaRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +21,14 @@ public class ContaService {
 
     private final ContaRepository contaRepository;
     private final MovimentacaoService movimentacaoService;
+    private final UsuarioService usuarioService;
+    private final UsuarioMapper usuarioMapper;
 
-    public ContaService(ContaRepository contaRepository, MovimentacaoService movimentacaoService) {
+    public ContaService(ContaRepository contaRepository, MovimentacaoService movimentacaoService, UsuarioService usuarioService, UsuarioMapper usuarioMapper) {
         this.contaRepository = contaRepository;
         this.movimentacaoService = movimentacaoService;
+        this.usuarioService = usuarioService;
+        this.usuarioMapper = usuarioMapper;
     }
 
     public String gerarAgencia() {
@@ -54,6 +59,24 @@ public class ContaService {
                 .saldoAtual(conta.getSaldo())
                 .dataHora(dataHora)
                 .build();
+    }
+
+    public UsuarioResponse cadastrar(UsuarioRequest request) {
+
+        Usuario usuario = usuarioService.cadastrarUsuario(request);
+
+        Conta conta = Conta.builder()
+                .usuario(usuario)
+                .agencia(gerarAgencia())
+                .numero(gerarNumeroConta(usuario.getId()))
+                .saldo(BigDecimal.ZERO)
+                .build();
+
+        contaRepository.save(conta);
+
+        usuario.setConta(conta);
+
+        return usuarioMapper.toResponse(usuario);
     }
 
     public Conta buscarContaDestino(String destinatario) {
@@ -135,5 +158,34 @@ public class ContaService {
                 .contaId(conta.getId())
                 .saldoAtual(conta.getSaldo())
                 .build();
+    }
+
+    public PerfilResponse buscarPerfil(Long contaId) {
+
+        Conta conta = buscarContaPorId(contaId);
+
+        Usuario usuario = conta.getUsuario();
+
+        return PerfilResponse.builder()
+                .contaId(conta.getId())
+                .nome(usuario.getNome())
+                .email(usuario.getEmail())
+                .cpf(usuario.getCpf())
+                .saldoAtual(conta.getSaldo())
+                .build();
+    }
+
+    public PerfilResponse atualizarPerfil(Long contaId, PerfilRequest request) {
+
+        Conta conta = buscarContaPorId(contaId);
+
+        Usuario usuario = conta.getUsuario();
+
+        usuario.setNome(request.getNome());
+        usuario.setEmail(request.getEmail());
+
+        usuarioService.salvar(usuario);
+
+        return buscarPerfil(contaId);
     }
 }

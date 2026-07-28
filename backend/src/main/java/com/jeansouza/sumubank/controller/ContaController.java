@@ -1,11 +1,9 @@
 package com.jeansouza.sumubank.controller;
 
 import com.jeansouza.sumubank.business.dto.request.DepositoRequest;
+import com.jeansouza.sumubank.business.dto.request.PerfilRequest;
 import com.jeansouza.sumubank.business.dto.request.TransferenciaRequest;
-import com.jeansouza.sumubank.business.dto.response.DepositoResponse;
-import com.jeansouza.sumubank.business.dto.response.ExtratoResponse;
-import com.jeansouza.sumubank.business.dto.response.SaldoResponse;
-import com.jeansouza.sumubank.business.dto.response.TransferenciaResponse;
+import com.jeansouza.sumubank.business.dto.response.*;
 import com.jeansouza.sumubank.business.service.ContaService;
 import com.jeansouza.sumubank.business.service.TransferenciaService;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +45,20 @@ public class ContaController {
     public SaldoResponse consultarSaldo(@PathVariable Long id) {
 
         return contaService.consultarSaldo(id);
+
+    }
+
+    @GetMapping("/{id}/perfil")
+    public PerfilResponse buscarPerfil(@PathVariable Long id) {
+
+        return contaService.buscarPerfil(id);
+
+    }
+
+    @PutMapping("/{id}/perfil")
+    public PerfilResponse atualizarPerfil( @PathVariable Long id, @RequestBody PerfilRequest request) {
+
+        return contaService.atualizarPerfil(id, request);
 
     }
 }

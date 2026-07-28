@@ -16,39 +16,25 @@ public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
 
-    private final ContaRepository contaRepository;
-
     private final UsuarioMapper usuarioMapper;
 
-    private final ContaService contaService;
-
-    public UsuarioService(
-            UsuarioRepository usuarioRepository,
-            ContaRepository contaRepository, UsuarioMapper usuarioMapper, ContaService contaService) {
+    public UsuarioService( UsuarioRepository usuarioRepository, UsuarioMapper usuarioMapper) {
 
         this.usuarioRepository = usuarioRepository;
-        this.contaRepository = contaRepository;
         this.usuarioMapper = usuarioMapper;
-        this.contaService = contaService;
     }
 
-    public UsuarioResponse cadastrar(UsuarioRequest request) {
+    public Usuario cadastrarUsuario(UsuarioRequest request) {
 
         Usuario usuario = usuarioMapper.toEntity(request);
 
-        usuario = usuarioRepository.save(usuario);
+        return usuarioRepository.save(usuario);
 
-        Conta conta = Conta.builder()
-                .usuario(usuario)
-                .agencia(contaService.gerarAgencia())
-                .numero(contaService.gerarNumeroConta(usuario.getId()))
-                .saldo(BigDecimal.ZERO)
-                .build();
+    }
 
-        conta = contaRepository.save(conta);
+    public void salvar(Usuario usuario) {
 
-        usuario.setConta(conta);
+        usuarioRepository.save(usuario);
 
-        return usuarioMapper.toResponse(usuario);
     }
 }
