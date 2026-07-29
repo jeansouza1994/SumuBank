@@ -4,13 +4,11 @@ import com.jeansouza.sumubank.business.dto.request.UsuarioRequest;
 import com.jeansouza.sumubank.business.dto.response.UsuarioResponse;
 import com.jeansouza.sumubank.business.service.ContaService;
 import com.jeansouza.sumubank.business.service.UsuarioService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/usuarios")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UsuarioController {
 
     private final ContaService contaService;
