@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { TransferenciaRequest } from '../models/transferencia-request';
+import { TransferenciaRequest } from '../models/request/transferencia-request';
 
 @Injectable({
   providedIn: 'root'

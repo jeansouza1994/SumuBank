@@ -3,9 +3,9 @@ import { Component, inject, signal } from '@angular/core';
 import { PageHeader } from '../../shared/components/page-header/page-header';
 import { TransactionItem } from '../../shared/components/transaction-item/transaction-item';
 
-import { DashboardService } from '../../shared/services/dashboard';
+import { DashboardService } from '../../services/dashboard';
 
-import { Movimentacao } from '../../shared/models/movimentacao.model';
+import { MovimentacaoResponse } from '../../models/response/movimentacao-response';
 
 @Component({
   selector: 'app-extrato',
@@ -20,7 +20,7 @@ export class Extrato {
 
   private dashboardService = inject(DashboardService);
 
-  movimentacoes = signal<Movimentacao[]>(
+  movimentacoes = signal<MovimentacaoResponse[]>(
     this.dashboardService.getMovimentacoes()
   );
 

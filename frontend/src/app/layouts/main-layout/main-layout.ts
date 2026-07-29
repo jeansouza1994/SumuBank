@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
-import { AccountService } from '../../shared/services/account.service';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-main-layout',

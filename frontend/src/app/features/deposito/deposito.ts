@@ -2,8 +2,8 @@ import { Component, inject } from '@angular/core';
 import { Location } from '@angular/common';
 import { PageHeader } from '../../shared/components/page-header/page-header';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
-import { DepositoService } from '../../shared/services/deposito.service';
-import { DepositoRequest } from '../../shared/models/deposito-request';
+import { DepositoService } from '../../services/deposito.service';
+import { DepositoRequest } from '../../models/request/deposito-request';
 import { CurrencyInput } from '../../shared/components/currency-input/currency-input';
 
 @Component({

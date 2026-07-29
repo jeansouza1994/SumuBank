@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Movimentacao } from '../models/movimentacao.model';
+import { MovimentacaoResponse } from '../models/response/movimentacao-response';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DashboardService {
 
-  private movimentacoes: Movimentacao[] = [
+  private movimentacoes: MovimentacaoResponse[] = [
 
     {
       id: 1,
@@ -32,7 +32,7 @@ export class DashboardService {
 
   ];
 
-  getMovimentacoes(): Movimentacao[] {
+  getMovimentacoes(): MovimentacaoResponse[] {
 
     return this.movimentacoes;
 

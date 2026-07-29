@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 
-import { Movimentacao } from '../../models/movimentacao.model';
+import { MovimentacaoResponse } from '../../../models/response/movimentacao-response';
 
 @Component({
   selector: 'app-transaction-item',
@@ -14,6 +14,6 @@ import { Movimentacao } from '../../models/movimentacao.model';
 })
 export class TransactionItem {
 
-  movimentacao = input.required<Movimentacao>();
+  movimentacao = input.required<MovimentacaoResponse>();
 
 }

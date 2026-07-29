@@ -1,10 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { PageHeader } from '../../shared/components/page-header/page-header';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TransferenciaService } from '../../shared/services/transferencia.service';
-import { TransferenciaRequest } from '../../shared/models/transferencia-request';
+import { TransferenciaService } from '../../services/transferencia.service';
+import { TransferenciaRequest } from '../../models/request/transferencia-request';
 import { Location } from '@angular/common';
-import { AccountService } from '../../shared/services/account.service';
+import { AccountService } from '../../services/account.service';
 import { Router } from '@angular/router';
 import { CurrencyInput } from '../../shared/components/currency-input/currency-input';
 

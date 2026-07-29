@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DepositoRequest } from '../models/deposito-request';
+import { DepositoRequest } from '../models/request/deposito-request';
 import { Observable, of } from 'rxjs';
 
 @Injectable({

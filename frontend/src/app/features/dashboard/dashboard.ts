@@ -1,9 +1,9 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, OnInit } from '@angular/core';
 import { BalanceCard } from '../../shared/components/balance-card/balance-card';
-import { DashboardService } from '../../shared/services/dashboard';
-import { Movimentacao } from '../../shared/models/movimentacao.model';
+import { DashboardService } from '../../services/dashboard';
+import { MovimentacaoResponse } from '../../models/response/movimentacao-response';
 import { RouterLink } from '@angular/router';
-import { AccountService } from '../../shared/services/account.service';
+import { AccountService } from '../../services/account.service';
 import { TransactionItem } from '../../shared/components/transaction-item/transaction-item';
 
 @Component({
@@ -12,7 +12,7 @@ import { TransactionItem } from '../../shared/components/transaction-item/transa
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
-export class Dashboard {
+export class Dashboard implements OnInit {
 
   private dashboardService = inject(DashboardService);
 
@@ -20,6 +20,10 @@ export class Dashboard {
 
   account = this.accountService;
   
-  movimentacoes = signal<Movimentacao[]>(this.dashboardService.getMovimentacoes());
+  movimentacoes = signal<MovimentacaoResponse[]>(this.dashboardService.getMovimentacoes());
   
+  ngOnInit(): void {
+    this.accountService.carregarSaldo(1);
   }
+
+}

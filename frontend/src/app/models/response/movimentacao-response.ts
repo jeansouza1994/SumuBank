@@ -1,6 +1,6 @@
-import { TipoMovimentacao } from './tipo-movimentacao';
+import { TipoMovimentacao } from '../tipo-movimentacao';
 
-export interface Movimentacao {
+export interface MovimentacaoResponse  {
 
   id: number;
 
