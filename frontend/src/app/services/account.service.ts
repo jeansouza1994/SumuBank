@@ -1,5 +1,7 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { ContaService } from './conta.service';
+import { PerfilResponse } from '../models/response/perfil-response';
+import { PerfilRequest } from '../models/request/perfil-request';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,12 @@ export class AccountService {
   private readonly _saldo = signal(0);
 
   readonly saldo = this._saldo.asReadonly();
+
+
+  private readonly _perfil = signal<PerfilResponse | null>(null);
+
+  readonly perfil = this._perfil.asReadonly();
+
 
   setSaldo(saldo: number): void {
     this._saldo.set(saldo);
@@ -28,14 +36,32 @@ export class AccountService {
     });
   }
 
-    nome = signal('Jean Souza');
+  setPerfil(perfil: PerfilResponse): void {
+    this._perfil.set(perfil);
+  }
 
-    email = signal('jean.souza@example.com');
+  carregarPerfil(contaId: number): void {
+    this.contaService
+        .buscarPerfil(contaId)
+        .subscribe({
+          next: (response) => {
+            this.setPerfil(response);
+          }
+        });
+  }
 
-    cpf = signal('123.456.789-00');
+  atualizarPerfil(contaId: number, request: PerfilRequest): void {
+    this.contaService
+        .atualizarPerfil(contaId, request)
+        .subscribe({
 
-    agencia = signal('0001');
+          next: (response) => {
 
-    conta = signal('100001-9');
+            this.setPerfil(response);
+
+          }
+
+        });
+  }
 
 }

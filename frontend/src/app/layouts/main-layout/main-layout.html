@@ -16,12 +16,12 @@
   <div class="user-info">
 
     <span class="welcome">
-      Olá, {{ account.nome() }}
+      Olá, {{ account.perfil()?.nome }}
     </span>
 
     <a class="avatar" routerLink="/perfil">
 
-      {{ account.nome().charAt(0).toUpperCase() }}
+      {{ account.perfil()?.nome?.[0]?.toUpperCase() }}
 
     </a>
 

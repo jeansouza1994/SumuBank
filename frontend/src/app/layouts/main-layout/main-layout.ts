@@ -12,4 +12,8 @@ export class MainLayout {
   private accountService = inject(AccountService);
 
   account = this.accountService;
+
+  ngOnInit(): void {
+    this.accountService.carregarPerfil(1);
+  }
 }

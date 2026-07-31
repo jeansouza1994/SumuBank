@@ -19,6 +19,10 @@ public class PerfilResponse {
 
     private String cpf;
 
+    private String agencia;
+
+    private String numero;
+
     private BigDecimal saldoAtual;
 
 }

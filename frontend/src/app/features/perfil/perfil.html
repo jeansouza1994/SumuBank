@@ -4,25 +4,43 @@
     title="Meu Perfil">
   </app-page-header>
 
-  <section class="form-card">
+  <form class="form-card" [formGroup]="form" (ngSubmit)="salvarPerfil()">
 
     <div class="profile-avatar">
 
-      {{ account.nome().charAt(0).toUpperCase() }}
+      {{ account.perfil()?.nome?.[0]?.toUpperCase() }}
 
     </div>
 
-    <h2>
+    @if (!editando()) {
 
-      {{ account.nome() }}
+      <h2>
+        {{ account.perfil()?.nome }}
+      </h2>
 
-    </h2>
+    } @else {
 
-    <p class="profile-email">
+      <input
+        type="text"
+        formControlName="nome"
+        placeholder="Nome">
 
-      {{ account.email() }}
+    }
 
-    </p>
+    @if (!editando()) {
+
+      <p class="profile-email">
+        {{ account.perfil()?.email }}
+      </p>
+
+    } @else {
+
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="Email">
+
+    }
 
     <hr>
 
@@ -30,7 +48,7 @@
 
       <span>CPF</span>
 
-      <strong>{{ account.cpf() }}</strong>
+      <strong>{{ account.perfil()?.cpf }}</strong>
 
     </div>
 
@@ -38,7 +56,7 @@
 
       <span>Agência</span>
 
-      <strong>{{ account.agencia() }}</strong>
+      <strong>{{ account.perfil()?.agencia }}</strong>
 
     </div>
 
@@ -46,7 +64,7 @@
 
       <span>Conta</span>
 
-      <strong>{{ account.conta() }}</strong>
+      <strong>{{ account.perfil()?.numero }}</strong>
 
     </div>
 
@@ -62,14 +80,39 @@
 
     </div>
 
-    <a
-      class="edit-link"
-      (click)="editarPerfil()">
+    @if (!editando()) {
 
-      ✏️ Editar perfil
+      <a
+        class="edit-link"
+        (click)="editarPerfil()">
 
-    </a>
+        ✏️ Editar perfil
 
-  </section>
+      </a>
+
+    } @else {
+
+    <div class="actions">
+
+      <button
+        type="button"
+        (click)="cancelarEdicao()">
+
+        Cancelar
+
+      </button>
+
+      <button
+        type="submit">
+
+        Salvar
+
+      </button>
+
+    </div>
+
+    }
+
+  </form>
 
 </main>

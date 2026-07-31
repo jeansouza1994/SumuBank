@@ -171,6 +171,8 @@ public class ContaService {
                 .nome(usuario.getNome())
                 .email(usuario.getEmail())
                 .cpf(usuario.getCpf())
+                .agencia(conta.getAgencia())
+                .numero(conta.getNumero())
                 .saldoAtual(conta.getSaldo())
                 .build();
     }
